@@ -14,6 +14,10 @@ const Info = (props) => {
                     <td className="value">{props.race}</td>
                 </tr>
                 <tr>
+                    <td className="property"><Label text="Gender:"/></td>
+                    <td className="value">{props.gender}</td>
+                </tr>
+                <tr>
                     <td className="property"><Label text="Class:"/></td>
                     <td className="value">{props.class}</td>
                 </tr>
