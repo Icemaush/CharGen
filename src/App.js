@@ -8,6 +8,7 @@ function App() {
     const [character, setCharacter] = useState({
         faction: '',
         race: '',
+        gender: '',
         class: '',
         spec: '',
         classImg: require('./images/wow_logo.png').default,
@@ -21,6 +22,9 @@ function App() {
         ["Dwarf", "Gnome", "Human", "Night Elf"], // Alliance races
         ["Orc", "Tauren", "Troll", "Undead"] // Horde races
     ];
+    const genders = [
+        "Male", "Female"
+    ]
     const classes =[
         // Alliance classes
         [["Hunter", "Paladin", "Priest", "Rogue", "Warrior"], // Dwarf classes
@@ -75,16 +79,25 @@ function App() {
 
     function generateCharacter() {
         var character = {};
+        // Set faction
         var factionIndex = getIndex(factions.length);
         character.faction = factions[factionIndex];
+        // Set race
         var raceIndex = getIndex(races[factionIndex].length);
         character.race = races[factionIndex][raceIndex];
+        // Set gender
+        var genderIndex = getIndex(genders.length);
+        character.gender = genders[genderIndex];
+        // Set class
         var classIndex = getIndex(classes[factionIndex][raceIndex].length);
         character.class = classes[factionIndex][raceIndex][classIndex];
+        // Set spec
         var specIndex = getIndex(specs.find(spec => spec.name === character.class).classes.length);
         character.spec = specs.find(spec => spec.name === character.class).classes[specIndex];
+        // Set image paths
         character.classImg = require('./images/' + character.class.toLowerCase() + '.png').default;
         character.specImg = require('./images/' + (character.class + '_' + character.spec).toLowerCase() + '.png').default;
+        
         setCharacter(character);
     }
 
@@ -96,7 +109,7 @@ function App() {
         <div className = "container">
             <Header title = "WoWGen" subtitle = "A classic WoW character generator" />
             <Button text = "Generate" onClick={generateCharacter}/>
-            <Info faction={character.faction} race={character.race} class={character.class} spec={character.spec} />
+            <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
             <div className="imgcon">
                 <Image type="class_image" url={character.classImg} />
                 <Image type="spec_image" url={character.specImg}/>
