@@ -59,12 +59,9 @@ header {
     margin-top: 20px;
 }
 
-#class_image {
-    margin-right: 20px;
-}
-
-#spec_image {
-    margin-left: 20px;
+.char-img {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .btn_generate {
