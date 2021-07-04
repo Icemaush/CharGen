@@ -11,6 +11,7 @@ function App() {
         gender: '',
         class: '',
         spec: '',
+        factionImg: require('./images/wow_logo.png').default,
         raceImg: require('./images/wow_logo.png').default,
         classImg: require('./images/wow_logo.png').default,
         specImg: require('./images/wow_logo.png').default
@@ -96,6 +97,7 @@ function App() {
         var specIndex = getIndex(specs.find(spec => spec.name === character.class).classes.length);
         character.spec = specs.find(spec => spec.name === character.class).classes[specIndex];
         // Set image paths
+        character.factionImg = require('./images/factions/' + (character.faction).toLowerCase() + '.png').default;
         character.raceImg = require('./images/races/' + (character.race + '_' + character.gender).toLowerCase().replace(' ', '') + '.png').default;
         character.classImg = require('./images/classes/' + character.class.toLowerCase() + '.png').default;
         character.specImg = require('./images/specs/' + (character.class + '_' + character.spec).toLowerCase() + '.png').default;
@@ -113,6 +115,7 @@ function App() {
             <Button text = "Generate" onClick={generateCharacter}/>
             <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
             <div className="imgcon">
+                <Image type="faction_image" url={character.factionImg} />
                 <Image type="race_image" url={character.raceImg} />
                 <Image type="class_image" url={character.classImg} />
                 <Image type="spec_image" url={character.specImg}/>
