@@ -1,5 +1,5 @@
 const Button = ({ text, onClick }) => {
-    return <button className="btn btn_generate" onClick={onClick}>{text}</button>
+    return <button className="btn btn-primary btn_generate" onClick={onClick}>{text}</button>
 }
 
 export default Button

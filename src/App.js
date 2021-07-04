@@ -3,8 +3,18 @@ import Header from './components/Header'
 import Button from './components/Button'
 import Info from './components/Info'
 import Image from './components/Image'
+import DarkModeSwitch from './components/DarkModeSwitch'
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/GlobalStyles";
+import { lightTheme, darkTheme } from "./components/Themes"
+import  {useDarkMode} from "./components/useDarkMode"
 
 function App() {
+    // Dark Mode
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+    // Character state
     const [character, setCharacter] = useState({
         faction: '',
         race: '',
@@ -105,22 +115,28 @@ function App() {
         setCharacter(character);
     }
 
-    const getIndex = (arrayLength) => {
+    function getIndex (arrayLength) {
         return Math.floor(Math.random() * arrayLength);
     }
 
     return ( 
-        <div className = "container">
-            <Header title = "WoWGen" subtitle = "A classic WoW character generator" />
-            <Button text = "Generate" onClick={generateCharacter}/>
-            <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
-            <div className="imgcon">
-                <Image type="faction_image" url={character.factionImg} />
-                <Image type="race_image" url={character.raceImg} />
-                <Image type="class_image" url={character.classImg} />
-                <Image type="spec_image" url={character.specImg}/>
-            </div>
-        </div>
+        <ThemeProvider theme={themeMode}>
+            <>
+            <GlobalStyles/>
+                <div className = "container">
+                    <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
+                    <Header title="WoWGen" subtitle="A WoW Classic character generator" />
+                    <Button text="Generate" onClick={generateCharacter}/>
+                    <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
+                    <div className="imgcon">
+                        <Image type="faction_image" url={character.factionImg} />
+                        <Image type="race_image" url={character.raceImg} />
+                        <Image type="class_image" url={character.classImg} />
+                        <Image type="spec_image" url={character.specImg}/>
+                    </div>
+                </div>
+            </>
+        </ThemeProvider>
     );
 }
 
