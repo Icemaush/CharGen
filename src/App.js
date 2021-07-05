@@ -127,13 +127,16 @@ function App() {
                     <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
                     <Header title="WoWGen" subtitle="A WoW Classic character generator" />
                     <Button text="Generate" onClick={generateCharacter}/>
-                    <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
-                    <div className="imgcon">
-                        <Image type="faction_image" url={character.factionImg} />
-                        <Image type="race_image" url={character.raceImg} />
-                        <Image type="class_image" url={character.classImg} />
-                        <Image type="spec_image" url={character.specImg}/>
+                    <div className="info">
+                        <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
+                        <div className="imgcon">
+                            <Image type="faction_image" url={character.factionImg} />
+                            <Image type="race_image" url={character.raceImg} />
+                            <Image type="class_image" url={character.classImg} />
+                            <Image type="spec_image" url={character.specImg}/>
+                        </div>
                     </div>
+                    
                 </div>
             </>
         </ThemeProvider>
