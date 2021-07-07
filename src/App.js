@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Button from './components/Button'
 import Info from './components/Info'
+import Icon from './components/Icon'
 import Image from './components/Image'
 import DarkModeSwitch from './components/DarkModeSwitch'
 import {ThemeProvider} from "styled-components";
@@ -24,7 +25,8 @@ function App() {
         factionImg: require('./images/wow_logo.png').default,
         raceImg: require('./images/wow_logo.png').default,
         classImg: require('./images/wow_logo.png').default,
-        specImg: require('./images/wow_logo.png').default
+        specImg: require('./images/wow_logo.png').default,
+        previewImg: require('./images/wow_logo.png').default
     });
 
     const factions = [
@@ -108,9 +110,13 @@ function App() {
         character.spec = specs.find(spec => spec.name === character.class).classes[specIndex];
         // Set image paths
         character.factionImg = require('./images/factions/' + (character.faction).toLowerCase() + '.png').default;
-        character.raceImg = require('./images/races/' + (character.race + '_' + character.gender).toLowerCase().replace(' ', '') + '.png').default;
+        character.raceImg = require('./images/races/' + (character.race + '_' + character.gender).replace(' ', '').toLowerCase() + '.png').default;
         character.classImg = require('./images/classes/' + character.class.toLowerCase() + '.png').default;
         character.specImg = require('./images/specs/' + (character.class + '_' + character.spec).toLowerCase() + '.png').default;
+        character.previewImg = require('./images/armor/T1/' + 
+        (character.race + '_' + character.gender + '_' + character.class).replace(' ', '').toLowerCase() + '.png').default;
+        console.log('./images/armor/T1/' + 
+        (character.race + '_' + character.gender + '_' + character.class).toLowerCase() + '.png');
         
         setCharacter(character);
     }
@@ -123,20 +129,22 @@ function App() {
         <ThemeProvider theme={themeMode}>
             <>
             <GlobalStyles/>
+            <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
                 <div className = "container">
-                    <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
                     <Header title="WoWGen" subtitle="A WoW Classic character generator" />
                     <Button text="Generate" onClick={generateCharacter}/>
                     <div className="info">
                         <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
                         <div className="imgcon">
-                            <Image type="faction_image" url={character.factionImg} />
-                            <Image type="race_image" url={character.raceImg} />
-                            <Image type="class_image" url={character.classImg} />
-                            <Image type="spec_image" url={character.specImg}/>
+                            <Icon type="faction_image" url={character.factionImg} />
+                            <Icon type="race_image" url={character.raceImg} />
+                            <Icon type="class_image" url={character.classImg} />
+                            <Icon type="spec_image" url={character.specImg}/>
+                        </div>
+                        <div className="char-preview">
+                            <Image type="char_preview" url={character.previewImg} />
                         </div>
                     </div>
-                    
                 </div>
             </>
         </ThemeProvider>
