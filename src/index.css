@@ -11,10 +11,10 @@ body {
 
 .container {
     position: relative;
-    max-width: 500px;
+    max-width: 850px;
     margin: 30px auto;
     overflow: auto;
-    min-height: 500px;
+    min-height: 740px;
     border: 1px solid steelblue;
     padding: 30px;
     border-radius: 5px;
@@ -61,15 +61,13 @@ header {
 }
 
 .info table td.property {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     padding-right: 10px;
     text-align: right;
 }
 
 .info table td.value {
-    padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 35px;
     padding-left: 10px;
     text-align: left;
 }
@@ -89,6 +87,23 @@ header {
 .char-img {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.char-preview {
+    position: absolute;
+    left: 340px;
+    top: 30px;
+    width: 452px;
+    height: 502px;
+    border: 1px solid goldenrod;
+    border-radius: 2px;
+}
+
+.char-preview-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .btn_generate {
