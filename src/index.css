@@ -97,15 +97,13 @@ header {
     height: 502px;
     border: 1px solid goldenrod;
     border-radius: 2px;
-    vertical-align: middle;
-    text-align: center;
 }
 
 .char-preview-image {
-    display: flex;
-    margin: auto auto;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .btn_generate {
