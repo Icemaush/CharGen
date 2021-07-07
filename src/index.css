@@ -44,33 +44,46 @@ header {
     text-align: center;
 }
 
+.info {
+    display: flex;
+    position: relative;
+}
+
 .info table {
+    display: block;
+    position: absolute;
+    left: 20px;
     border-collapse: collapse;
     margin: auto;
-    margin-top: 20px;
-    width: 80%;
+    margin-top: 40px;
+    width: 60%;
     height: 100px;
 }
 
 .info table td.property {
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     padding-right: 10px;
-    width: 40%;
     text-align: right;
 }
 
 .info table td.value {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
     text-align: left;
 }
 
 .imgcon {
-    display: flex;
+    position: absolute;
+    left: 230px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 25px;
+}
+
+.imgcon img {
+    display: block;
+    margin-bottom: 10px;
 }
 
 .char-img {
