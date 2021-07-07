@@ -13,13 +13,20 @@ exports.getFactions = async (req, res) => {
             console.log('ERROR');
             throw err;
         }
+
+        console.log(rows);
         rows.forEach((row) => {
             console.log(row.name);
         });
-        result = rows;
+        res.json({
+            message: "success",
+            data: rows
+        });
     });
     
-    res.json(result);
+console.log(result);
+
+    
 
     connection.close(db);
     return result;

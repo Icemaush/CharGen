@@ -18,7 +18,7 @@ function close(database) {
             return console.error(err.message);
         }
     });
-    return 'Closed connection to the wowgen database.';
+    console.log('Closed connection to the wowgen database.');
 }
 
 module.exports = {connect, close};
