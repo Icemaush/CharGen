@@ -23,4 +23,7 @@ router.get('/classes/:race_id', controller.classController.getClassesByRace);
 router.get('/specs', controller.specController.getSpecs);
 router.get('/specs/:class_id', controller.specController.getSpecsByClass);
 
+// Character routes
+router.get('/character/generate', controller.characterController.generateCharacter);
+
 module.exports = router;

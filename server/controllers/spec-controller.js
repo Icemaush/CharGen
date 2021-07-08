@@ -1,4 +1,4 @@
-const connection = require('../db/connection');
+const connection = require('../db/database');
 const path = require('path');
 const databasePath = path.resolve('db/wowgen.db');
 
