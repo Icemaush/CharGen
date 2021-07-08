@@ -6,7 +6,6 @@ function connect(path) {
         if (err) {
             console.error(err.message);
         }
-        console.log('Connected to the wowgen database.');
     });
     return db;
 }
@@ -18,7 +17,6 @@ function close(database) {
             return console.error(err.message);
         }
     });
-    console.log('Closed connection to the wowgen database.');
 }
 
 module.exports = {connect, close};
