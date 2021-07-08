@@ -14,11 +14,11 @@ const port = process.env.port || 5000;
 const app = express();
 
 // Apply middleware
-app.use(cors());
-app.use(helmet());
-app.use(compression());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(cors());
+// app.use(helmet());
+// app.use(compression());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 // Implement route
 app.use('/api', wowgenRouter);
