@@ -23,20 +23,18 @@ function App() {
         gender: '',
         class: '',
         spec: '',
-        factionIconUrl: './images/wow_logo.png',
-        raceIconUrl: './images/wow_logo.png',
-        classIconUrl: './images/wow_logo.png',
-        specIconUrl: './images/wow_logo.png',
-        previewImageUrl: './images/wow_logo.png'
+        factionIconUrl: require('./images/wow_logo.png').default,
+        raceIconUrl: require('./images/wow_logo.png').default,
+        classIconUrl: require('./images/wow_logo.png').default,
+        specIconUrl: require('./images/wow_logo.png').default,
+        previewImageUrl: require('./images/wow_logo.png').default
     });
 
     // Send request to server to generate a random character
     function generateCharacter() {
         axios.get('https://wowgen-server.herokuapp.com/generate-character').then(res => {
             const character = res.data.data;
-            console.log(character);
             setCharacter(character);
-            console.log(character);
         });
     }
 
