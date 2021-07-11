@@ -1,4 +1,5 @@
 const Icon = (props) => {
+    console.log(props.url);
     return <img className="char-img" id={props.type} src={props.url} alt={props.type} width="64" height="64"/>
 }
 
