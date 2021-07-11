@@ -9,6 +9,7 @@ import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/Themes"
 import  {useDarkMode} from "./components/useDarkMode"
+import axios from 'axios'
 
 function App() {
     // Dark Mode
@@ -22,107 +23,21 @@ function App() {
         gender: '',
         class: '',
         spec: '',
-        factionImg: require('./images/wow_logo.png').default,
-        raceImg: require('./images/wow_logo.png').default,
-        classImg: require('./images/wow_logo.png').default,
-        specImg: require('./images/wow_logo.png').default,
-        previewImg: require('./images/wow_logo.png').default
+        factionIconUrl: './images/wow_logo.png',
+        raceIconUrl: './images/wow_logo.png',
+        classIconUrl: './images/wow_logo.png',
+        specIconUrl: './images/wow_logo.png',
+        previewImageUrl: './images/wow_logo.png'
     });
 
-    const factions = [
-        "Alliance", "Horde"
-    ];
-    const races = [
-        ["Dwarf", "Gnome", "Human", "Night Elf"], // Alliance races
-        ["Orc", "Tauren", "Troll", "Undead"] // Horde races
-    ];
-    const genders = [
-        "Male", "Female"
-    ]
-    const classes =[
-        // Alliance classes
-        [["Hunter", "Paladin", "Priest", "Rogue", "Warrior"], // Dwarf classes
-        ["Mage", "Rogue", "Warlock", "Warrior"], // Gnome classes
-        ["Mage" , "Paladin", "Priest", "Rogue", "Warlock", "Warrior"], // Human classes
-        ["Druid" , "Hunter", "Priest", "Rogue", "Warrior"]], // Night Elf classes
-
-        // Horde classes
-        [["Hunter", "Rogue", "Shaman", "Warlock", "Warrior"], // Orc classes
-        ["Druid", "Hunter", "Shaman", "Warrior"], // Tauren classes
-        ["Hunter" , "Mage", "Priest", "Rogue", "Shaman", "Warrior"], // Troll classes
-        ["Mage" , "Priest", "Rogue", "Warlock", "Warrior"]] // Undead classes
-    ];
-    const specs = [
-        { 
-            name: "Druid",
-            classes: ["Balance", "Feral", "Restoration"]
-        },
-        {
-            name: "Hunter",
-            classes: ["Beastmastery", "Marksmanship", "Survival"]
-        },
-        {
-            name: "Mage",
-            classes: ["Arcane", "Fire", "Frost"]
-        },
-        {
-            name: "Paladin",
-            classes: ["Holy", "Protection", "Retribution"]
-        },
-        {
-            name: "Priest",
-            classes: ["Discipline", "Holy", "Shadow"]
-        },
-        {
-            name: "Rogue",
-            classes: ["Assassination", "Combat", "Subtlety"]
-        },
-        {
-            name: "Shaman",
-            classes: ["Elemental", "Enhancement", "Restoration"]
-        },
-        {
-            name: "Warlock",
-            classes: ["Affliction", "Demonology", "Destruction"]
-        },
-        {
-            name: "Warrior",
-            classes: ["Arms", "Fury", "Protection"]
-        }
-    ];
-
+    // Send request to server to generate a random character
     function generateCharacter() {
-        var character = {};
-        // Set faction
-        var factionIndex = getIndex(factions.length);
-        character.faction = factions[factionIndex];
-        // Set race
-        var raceIndex = getIndex(races[factionIndex].length);
-        character.race = races[factionIndex][raceIndex];
-        // Set gender
-        var genderIndex = getIndex(genders.length);
-        character.gender = genders[genderIndex];
-        // Set class
-        var classIndex = getIndex(classes[factionIndex][raceIndex].length);
-        character.class = classes[factionIndex][raceIndex][classIndex];
-        // Set spec
-        var specIndex = getIndex(specs.find(spec => spec.name === character.class).classes.length);
-        character.spec = specs.find(spec => spec.name === character.class).classes[specIndex];
-        // Set image paths
-        character.factionImg = require('./images/factions/' + (character.faction).toLowerCase() + '.png').default;
-        character.raceImg = require('./images/races/' + (character.race + '_' + character.gender).replace(' ', '').toLowerCase() + '.png').default;
-        character.classImg = require('./images/classes/' + character.class.toLowerCase() + '.png').default;
-        character.specImg = require('./images/specs/' + (character.class + '_' + character.spec).toLowerCase() + '.png').default;
-        character.previewImg = require('./images/armor/T1/' + 
-        (character.race + '_' + character.gender + '_' + character.class).replace(' ', '').toLowerCase() + '.png').default;
-        console.log('./images/armor/T1/' + 
-        (character.race + '_' + character.gender + '_' + character.class).toLowerCase() + '.png');
-        
-        setCharacter(character);
-    }
-
-    function getIndex (arrayLength) {
-        return Math.floor(Math.random() * arrayLength);
+        axios.get('https://wowgen-server.herokuapp.com/generate-character').then(res => {
+            const character = res.data.data;
+            console.log(character);
+            setCharacter(character);
+            console.log(character);
+        });
     }
 
     return ( 
@@ -136,13 +51,13 @@ function App() {
                     <div className="info">
                         <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
                         <div className="imgcon">
-                            <Icon type="faction_image" url={character.factionImg} />
-                            <Icon type="race_image" url={character.raceImg} />
-                            <Icon type="class_image" url={character.classImg} />
-                            <Icon type="spec_image" url={character.specImg}/>
+                            <Icon type="faction_image" url={character.factionIconUrl} />
+                            <Icon type="race_image" url={character.raceIconUrl} />
+                            <Icon type="class_image" url={character.classIconUrl} />
+                            <Icon type="spec_image" url={character.specIconUrl}/>
                         </div>
                         <div className="char-preview">
-                            <Image type="char_preview" url={character.previewImg} />
+                            <Image type="char_preview" url={character.previewImageUrl} />
                         </div>
                     </div>
                 </div>
