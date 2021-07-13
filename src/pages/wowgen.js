@@ -1,15 +1,16 @@
 import { useState } from 'react'
-import Header from './components/Header'
-import Button from './components/Button'
-import Info from './components/Info'
-import Icon from './components/Icon'
-import Image from './components/Image'
-import DarkModeSwitch from './components/DarkModeSwitch'
+import Header from '../components/Header'
+import Button from '../components/Button'
+import Info from '../components/Info'
+import Icon from '../components/Icon'
+import Image from '../components/Image'
+import DarkModeSwitch from '../components/DarkModeSwitch'
 import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "./components/GlobalStyles";
-import { lightTheme, darkTheme } from "./components/Themes"
-import  {useDarkMode} from "./components/useDarkMode"
+import { GlobalStyles } from "../components/GlobalStyles";
+import { lightTheme, darkTheme } from "../components/Themes"
+import  {useDarkMode} from "../components/useDarkMode"
 import axios from 'axios'
+import '../css/wowgen.css'
 
 function App() {
     // Dark Mode
