@@ -33,7 +33,7 @@ function Wowgen() {
 
     // Send request to server to generate a random character
     function generateCharacter() {
-        axios.get('https://wowgen-server.herokuapp.com/generate-character').then(res => {
+        axios.get('https://chargen-server.herokuapp.com/wow/generate-character').then(res => {
             const character = res.data.data;
             setCharacter(character);
         });

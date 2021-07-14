@@ -6,8 +6,7 @@ import {useDarkMode} from "../components/useDarkMode";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    BrowserRouter
+    Route
   } from "react-router-dom";
 import '../css/index.css'
 import Home from './home';
