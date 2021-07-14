@@ -12,7 +12,7 @@ import  {useDarkMode} from "../components/useDarkMode"
 import axios from 'axios'
 import '../css/wowgen.css'
 
-function App() {
+function Wowgen() {
     // Dark Mode
     const [theme, themeToggler] = useDarkMode();
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
@@ -24,11 +24,11 @@ function App() {
         gender: '',
         class: '',
         spec: '',
-        factionIconUrl: require('./images/wow_logo.png').default,
-        raceIconUrl: require('./images/wow_logo.png').default,
-        classIconUrl: require('./images/wow_logo.png').default,
-        specIconUrl: require('./images/wow_logo.png').default,
-        previewImageUrl: require('./images/wow_logo.png').default
+        factionIconUrl: 'wow_logo.png',
+        raceIconUrl: 'wow_logo.png',
+        classIconUrl: 'wow_logo.png',
+        specIconUrl: 'wow_logo.png',
+        previewImageUrl: 'wow_logo.png'
     });
 
     // Send request to server to generate a random character
@@ -65,4 +65,4 @@ function App() {
     );
 }
 
-export default App;
+export default Wowgen;

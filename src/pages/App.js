@@ -1,10 +1,17 @@
-import Header from '../components/Header'
 import DarkModeSwitch from '../components/DarkModeSwitch'
 import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "../components/GlobalStyles";
 import { lightTheme, darkTheme } from "../components/Themes"
-import {useDarkMode} from "../components/useDarkMode"
+import {useDarkMode} from "../components/useDarkMode";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    BrowserRouter
+  } from "react-router-dom";
 import '../css/index.css'
+import Home from './home';
+import Wowgen from './wowgen';
 
 function App() {
     // Dark Mode
@@ -12,16 +19,29 @@ function App() {
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     return ( 
-        <ThemeProvider theme={themeMode}>
-            <>
-            <GlobalStyles/>
-            <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
-                <div className = "container">
-                    <Header title="CharGen" subtitle="The best character generators out there" />
+        <>
+            <Router>
+                <ThemeProvider theme={themeMode}>
+                    <>
+                    <GlobalStyles/>
+                    <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
 
-                </div>
-            </>
-        </ThemeProvider>
+                    </>
+                </ThemeProvider>
+
+                <Switch>
+                    <Route path='/' exact>
+                        <Home />
+                    </Route>
+
+                    <Route path='/wowgen' exact>
+                        <Wowgen />
+                    </Route>
+                </Switch>
+
+            </Router>
+        </>
+
     );
 }
 
