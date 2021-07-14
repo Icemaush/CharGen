@@ -10,14 +10,10 @@ body {
 }
 
 .container {
-    position: relative;
-    max-width: 850px;
+    position: absolute;
+    /* top: 20px; */
     margin: 30px auto;
-    overflow: auto;
-    min-height: 740px;
     border: 1px solid steelblue;
-    padding: 30px;
-    border-radius: 5px;
 }
 
 .darkmode-switch {

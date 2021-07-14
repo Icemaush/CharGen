@@ -8,7 +8,6 @@ import {
     Switch,
     Route
   } from "react-router-dom";
-import '../css/index.css'
 import Home from './home';
 import Wowgen from './wowgen';
 
