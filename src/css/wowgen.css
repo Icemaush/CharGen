@@ -1,43 +1,11 @@
 @import url('//fonts.googleapis.com/css?family=Syncopate');
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
 
 body {
     font-family: 'Syncopate';
 }
 
-.container {
-    position: absolute;
-    /* top: 20px; */
-    margin: 30px auto;
-    border: 1px solid steelblue;
-}
-
-.darkmode-switch {
-    position: absolute;
-    top: 8px;
-    left: 10px;
-}
-
-.darkmode-label {
-    font-size: x-small;
-    position: absolute;
-    top: 25px;
-    width: 55px;
-}
-
 .header {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-header {
-    text-align: center;
+    margin-top: 50px;
 }
 
 .info {

@@ -36,10 +36,8 @@ function App() {
                         <Wowgen />
                     </Route>
                 </Switch>
-
             </Router>
         </>
-
     );
 }
 

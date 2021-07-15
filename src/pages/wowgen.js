@@ -1,22 +1,15 @@
 import { useState } from 'react'
+import Container from '@material-ui/core/Container'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Info from '../components/Info'
 import Icon from '../components/Icon'
 import Image from '../components/Image'
-import DarkModeSwitch from '../components/DarkModeSwitch'
-import {ThemeProvider} from "styled-components";
-import { GlobalStyles } from "../components/GlobalStyles";
-import { lightTheme, darkTheme } from "../components/Themes"
-import  {useDarkMode} from "../components/useDarkMode"
+import ModeButtons from '../components/ModeButtons'
 import axios from 'axios'
 import '../css/wowgen.css'
 
 function Wowgen() {
-    // Dark Mode
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
     // Character state
     const [character, setCharacter] = useState({
         faction: '',
@@ -40,29 +33,30 @@ function Wowgen() {
     }
 
     return ( 
-        <ThemeProvider theme={themeMode}>
-            <>
-            <GlobalStyles/>
-            <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
-                <div className = "container">
-                    <Header title="WoWGen" subtitle="A WoW Classic character generator" />
-                    <Button text="Generate" onClick={generateCharacter}/>
-                    <div className="info">
-                        <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
-                        <div className="imgcon">
-                            <Icon type="faction_image" url={character.factionIconUrl} />
-                            <Icon type="race_image" url={character.raceIconUrl} />
-                            <Icon type="class_image" url={character.classIconUrl} />
-                            <Icon type="spec_image" url={character.specIconUrl}/>
-                        </div>
-                        <div className="char-preview">
-                            <Image type="char_preview" url={character.previewImageUrl} />
-                        </div>
-                    </div>
+        <div>
+            <Container className="header">
+                <Header title="WoWGen" subtitle="A WoW Classic character generator" />
+            </Container>
+            <Container className="mode-buttons">
+                <ModeButtons />
+            </Container>
+            
+
+            <Button text="Generate" onClick={generateCharacter}/>
+            <div className="info">
+                <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
+                <div className="imgcon">
+                    <Icon type="faction_image" url={character.factionIconUrl} width="64" height = "64"/>
+                    <Icon type="race_image" url={character.raceIconUrl} width="64" height = "64"/>
+                    <Icon type="class_image" url={character.classIconUrl} width="64" height = "64"/>
+                    <Icon type="spec_image" url={character.specIconUrl} width="64" height = "64"/>
                 </div>
-            </>
-        </ThemeProvider>
-    );
+                <div className="char-preview">
+                    <Image type="char_preview" url={character.previewImageUrl} />
+                </div>
+            </div>
+        </div>
+   )
 }
 
 export default Wowgen;
