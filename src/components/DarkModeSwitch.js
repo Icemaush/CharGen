@@ -1,16 +1,27 @@
 import React from 'react'
-import { func, string } from 'prop-types';
+import { func, string } from 'prop-types'
+import styled from 'styled-components'
+import Switch from '@material-ui/core/Switch'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+
+const DarkModeSwitch = styled.div`
+    display: flex;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+`;
 
 const Toggle = ({theme, toggleTheme }) => {
     return (
-        <div className="darkmode-switch">
-            <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked={theme === 'dark' ? true : false} onClick={ toggleTheme }/>
-            </div>
-            <label className="form-check-label darkmode-label" htmlFor="flexSwitchCheckDefault">Dark Mode</label>
-        </div>
+        <DarkModeSwitch>
+            <FormControlLabel
+                control={<Switch checked={theme === 'dark' ? true : false} onChange={toggleTheme} />}
+                label={<span style={{ fontFamily: 'Syncopate' }}>Dark Mode</span>}
+            />
+        </DarkModeSwitch>
     );
 };
+
 Toggle.propTypes = {
     theme: string.isRequired,
     toggleTheme: func.isRequired,

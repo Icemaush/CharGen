@@ -15,12 +15,7 @@ body {
 }
 
 .header {
-    display: block;
-    position: relative;
     margin-top: 200px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
 }
 
 .links {
@@ -29,34 +24,9 @@ body {
     margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 50vw;
+    max-width: 40vw;
 }
 
 .row {
     margin-bottom: 20px;
 }
-
-.darkmode-switch {
-    position: absolute;
-    top: 8px;
-    left: 10px;
-}
-
-.darkmode-label {
-    font-size: x-small;
-    position: absolute;
-    top: 25px;
-    width: 55px;
-}
-
-.header {
-    display: block;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-header {
-    text-align: center;
-}
-

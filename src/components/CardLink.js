@@ -1,59 +1,28 @@
 import React from 'react';
-import Card from '@material-ui/core/Card'
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import styled from 'styled-components'
-import Header from '../components/Header'
+import Icon from '../components/Icon'
 
-const useStyles = makeStyles((theme) => ({
-    card: {
-        display: 'flex',
-        boxShadow: 'none',
-        border: '3px',
-        justifyContent:'center',
-        background: 'transparent',
-    },
-    details: {
-        marginTop: 'auto',
-        marginBottom: 'auto',
-        
-    },
-    content: {
-        
-    },
-    icon: {
-        width: 128,
-        height: 128,
-    },
-    typography: {
-        fontFamily: "Syncopate",
-        color: theme.palette.text.primary
-    }
-}));
+const Card = styled.div`
+    display: flex;
+    vertical-align: middle;
+    border: 1px solid darkred;
+    border-radius: 15px;
+    padding: 15px;
+`;
+
+const Title = styled.p`
+    font-size: 4rem;
+    padding-left: 15px;
+    margin-top: auto;
+    margin-bottom: auto;
+`;
 
 const CardLink = (props) => {
-    const classes = useStyles();
-
-    const theme = useTheme();
-
-    React.useEffect(() => {
-        console.log(theme.palette)
-    }, [theme])
-
     return (
-        <div className={classes.card} >
-            <CardMedia className={classes.icon} image={props.url} title={props.altText}/>
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                <Header title={props.text} subtitle=""/>
-                    {/* <Typography className={classes.typography} component="h2" variant="h2">
-                        {props.text}
-                    </Typography> */}
-                </CardContent>
-            </div>
-        </div>
+        <Card>
+            <Icon type={props.type} url={props.url} width="96" height="96"></Icon>
+            <Title>{props.text}</Title>
+        </Card>
     )   
 }
 
