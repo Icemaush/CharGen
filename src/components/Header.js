@@ -1,21 +1,24 @@
+import styled from 'styled-components'
+
 const Header = ({ title, subtitle }) => {
+    const Title = styled.h1`
+        font-size: 5rem;
+        text-align: center;
+    `;
+
+    const Subtitle = styled.h4`
+        font-size: 2rem;
+
+    `;
+
     return (
         <header>
-            <h1>{title}</h1>
-            <h4>{subtitle}</h4>
+            <Title>{ title }</Title>
+            <Subtitle>{ subtitle }</Subtitle>
         </header>
     )
-}
 
-// Default properties
-Header.defaultProps = {
-    title:"header title",
-    subtitle: "header subtitle"
-}
 
-// CSS in JS
-// const headingStyle = {
-//     "text-align": "center"
-// }
+}
 
 export default Header

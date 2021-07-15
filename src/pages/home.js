@@ -1,29 +1,34 @@
 import React from 'react'
 import Header from '../components/Header'
+import Container from '@material-ui/core/Container'
+import Grid from '@material-ui/core/Grid'
 import CardLink from '../components/CardLink'
-import Icon from '../components/Icon'
 import { Link } from 'react-router-dom'
 import '../css/index.css'
+import { classes } from 'istanbul-lib-coverage'
 
 const Home = () => {
     return (
-        <div className="container container-fluid">
-            <div className="row">
-                <div className="col">
-                    <Header title="Welcome to CharGen" subtitle="The best character generators out there" />
+        <div>
+            <Container maxWidth="lg">
+                <div className="header">
+                    <Header title="Welcome to CharGen" subtitle=""/>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col">
-                    <CardLink title = "WoW"/>
-                </div>
-                <div className="col">
-                    
-                </div>
-            </div>
+                <Grid container className={classes.root} spacing={5}>
+                    <Grid item sm={5}>
+                        <Link to="/wowgen">
+                            <CardLink text="WoW" altText="World of Warcraft" url="wow_logo.png"/>
+                        </Link>
+                    </Grid>
+                    <Grid item sm={5}>
+                        
+                    </Grid>
+                </Grid>
 
-            <Icon src="/wow_logo.png"/>
-            <Link to='/wowgen'>Wow Gen</Link>
+
+
+
+            </Container>
         </div>
     )
 }
