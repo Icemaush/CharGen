@@ -9,7 +9,7 @@ import '../css/index.css'
 const Home = () => {
     return (
         <div>
-            <Container className="header" maxWidth="lg">
+            <Container className="home-header" maxWidth="lg">
                 <Header title="Welcome to CharGen" subtitle=""/>
             </Container>
             <Container className="links" maxWidth="md" mt={80}>

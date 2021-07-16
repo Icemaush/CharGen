@@ -4,54 +4,15 @@ body {
     font-family: 'Syncopate';
 }
 
-.header {
+.wowgen-header {
     margin-top: 50px;
 }
 
-.info {
+.character-card {
     display: flex;
     position: relative;
 }
 
-.info table {
-    display: block;
-    position: absolute;
-    left: 20px;
-    border-collapse: collapse;
-    margin: auto;
-    margin-top: 40px;
-    width: 60%;
-    height: 100px;
-}
-
-.info table td.property {
-    padding-bottom: 35px;
-    padding-right: 10px;
-    text-align: right;
-}
-
-.info table td.value {
-    padding-bottom: 35px;
-    padding-left: 10px;
-    text-align: left;
-}
-
-.imgcon {
-    position: absolute;
-    left: 230px;
-    justify-content: center;
-    margin-top: 25px;
-}
-
-.imgcon img {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.char-img {
-    margin-left: 10px;
-    margin-right: 10px;
-}
 
 .char-preview {
     position: absolute;
