@@ -8,7 +8,7 @@ const DarkModeSwitch = styled.div`
     display: flex;
     position: absolute;
     top: 8px;
-    left: 10px;
+    right: 10px;
 `;
 
 const Toggle = ({theme, toggleTheme }) => {

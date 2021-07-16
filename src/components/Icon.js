@@ -1,5 +1,16 @@
+import styled from 'styled-components'
+
+const IconContainer = styled.div`
+        display: block;
+        margin: 5px;
+    `;
+
 const Icon = (props) => {
-    return <img className="char-img" id={props.type} src={props.url} alt={props.type} width={props.width} height={props.height}/>
+    return (
+        <IconContainer>
+            <img className="char-img" src={props.url} alt={props.type} width={props.width} height={props.height}/>
+        </IconContainer>
+    )
 }
 
 export default Icon
