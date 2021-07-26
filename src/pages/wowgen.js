@@ -1,18 +1,10 @@
-import { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Header from '../components/Header'
-import Button from '../components/Button'
-import ModeButtons from '../components/ModeButtons'
 import Return from '../components/Return'
-
 import '../css/wowgen.css'
 import CharacterDisplayContainer from '../components/CharacterDisplayContainer'
 
 function Wowgen() {
-    
-    
-
-    
 
     // // Append a character to the character list
     // function appendCharacter(character) {
@@ -31,8 +23,6 @@ function Wowgen() {
             <Container className="wowgen-header">
                 <Header title="WoWGen" subtitle="A WoW Classic character generator" />
             </Container>
-        
-            
             <CharacterDisplayContainer />
 
 

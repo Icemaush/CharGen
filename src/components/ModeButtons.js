@@ -8,24 +8,31 @@ const ModeButtonContainer = styled.div`
     margin-right: auto; */
 `;
 
-const ModeButton = styled.button`
+const ModeButton = styled.div`
     display: block;
-    background-color: #bdbdbd;
+    background-color: transparent;
     border-radius: 20px;
+    border: 1px solid darkgrey;
+    text-align: center;
+    cursor: pointer;
     margin-left: 40px;
     margin-right: 40px;
     padding: 10px 15px 10px 15px;
-    width: 250px;
+    width: 300px;
     font-family: 'Syncopate';
     box-shadow: none;
+    :hover {
+        text-decoration: underline;
+        text-decoration-color: #f50057;
+        text-decoration-thickness: 3px;
+    }
     :active {
         background-color: #f50057;
     }
 `;
 
-
-
 const ModeButtons = ({mode, setMode}) => {
+
     const setNewMode = (newMode) => {
         console.log(newMode);
         if (newMode !== mode) {
@@ -35,7 +42,9 @@ const ModeButtons = ({mode, setMode}) => {
 
     return (
         <ModeButtonContainer>
-            <ModeButton className={mode === "generate" ? "active" : ""} onClick={() => setNewMode("generate")}>Generate Character</ModeButton>
+            <ModeButton className={mode === "generate" ? "active" : ""} onClick={() => setNewMode("generate")}>
+                <span>Generate Character</span>
+            </ModeButton>
             <ModeButton className={mode === "build" ? "active" : ""} onClick={() => setNewMode("build")}>Build Character</ModeButton>
         </ModeButtonContainer>
         

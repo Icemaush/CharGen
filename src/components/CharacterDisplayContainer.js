@@ -1,4 +1,3 @@
-import WowCharacterCard from "./WowCharacterCard"
 import styled from 'styled-components'
 import { useState } from "react";
 import ModeButtons from "./ModeButtons";
@@ -12,7 +11,6 @@ const CharacterDisplayContainer = styled.div`
     position: relative;
     top: 100px;
 `;
-
 
 const CharacterDisplayWindow = () => {
     const [mode, setMode] = useState("generate");
@@ -36,12 +34,12 @@ const CharacterDisplayWindow = () => {
     }
 
     return (
-        <CharacterDisplayWindowContainer>
+        <CharacterDisplayContainer>
             <ModeButtons mode={mode} setMode={setMode}/>
             <Button text="Generate" onClick={generateCharacter} />
             <Button text="Clear" onClick={clearCharacters} />
             { mode === 'generate' ? <GenerateContainer characters={characters}/> : <BuildContainer />  }
-        </CharacterDisplayWindowContainer>
+        </CharacterDisplayContainer>
     )
 }
 

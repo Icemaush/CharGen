@@ -1,4 +1,6 @@
-const GenerateWindow = () => {
+import WowCharacterCard from './WowCharacterCard'
+
+const GenerateWindow = ({characters}) => {
     return (
         <div>
             {characters.map(character => 
