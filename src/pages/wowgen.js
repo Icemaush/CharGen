@@ -46,11 +46,9 @@ function Wowgen() {
             </Container>
         
             <Container className="mode-buttons">
-                <ModeButtons mode={mode} setMode={setMode}/>
+                <ModeButtons mode={mode} setMode={setMode} generateCharacter={generateCharacter} clearCharacters={clearCharacters}/>
             </Container>
 
-            <Button text="Generate" onClick={generateCharacter} />
-            <Button text="Clear" onClick={clearCharacters} />
             <CharacterDisplayWindow characters={characters} />
 
         </div>

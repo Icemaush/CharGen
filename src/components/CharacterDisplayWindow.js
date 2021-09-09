@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const CharacterDisplayWindowContainer = styled.div`
     display: flex;
     justify-content: center;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 `;
 
 const CharacterDisplayWindow = ({characters}) => {

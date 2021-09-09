@@ -38,6 +38,11 @@ body {
     width: fit-content;
 }
 
-.mode-buttons {
+.mode-button {
     width: 300px;
+}
+
+.sub-button {
+    width: 250px;
+    font-size: 12px;
 }
