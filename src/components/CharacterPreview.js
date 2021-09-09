@@ -2,11 +2,9 @@ import styled from 'styled-components'
 import Image from './Image'
 
 const ImageContainer = styled.div`
-        display: flex;
-        position: absolute;
-        top: 301px;
-        border: 1px solid blue;;
-    `;
+    height: 430px;
+    border-left: 1px solid darkred;
+`;
 
 const CharacterPreview = ({character}) => {
     return (

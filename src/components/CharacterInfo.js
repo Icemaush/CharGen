@@ -1,10 +1,14 @@
-import Label from './Label'
 import styled from 'styled-components'
+import CharacterIcons from "./CharacterIcons";
+
+const CharacterInfoContainer = styled.div`
+    display: flex;
+    height: fit-content;
+`;
 
 const Table = styled.table`
-    display: flex;
     width: 300px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     border-collapse: collapse;
     margin-right: 10px;
 `;
@@ -21,30 +25,33 @@ const TableValue = styled.td`
 
 const CharacterInfo = ({character}) => {
     return (
-        <Table>
-            <tbody>
-                <tr>
-                    <TableProperty><Label text="Faction:"/></TableProperty>
-                    <TableValue>{character.faction}</TableValue>
-                </tr>
-                <tr>
-                    <TableProperty><Label text="Race:"/></TableProperty>
-                    <TableValue>{character.race}</TableValue>
-                </tr>
-                <tr>
-                    <TableProperty><Label text="Gender:"/></TableProperty>
-                    <TableValue>{character.gender}</TableValue>
-                </tr>
-                <tr>
-                    <TableProperty><Label text="Class:"/></TableProperty>
-                    <TableValue>{character.class}</TableValue>
-                </tr>
-                <tr>
-                    <TableProperty><Label text="Spec:"/></TableProperty>
-                    <TableValue>{character.spec}</TableValue>
-                </tr>
-            </tbody>
-        </Table>
+        <CharacterInfoContainer>       
+            <Table>
+                <tbody>
+                    <tr>
+                        <TableProperty>Faction:</TableProperty>
+                        <TableValue>{character.faction}</TableValue>
+                    </tr>
+                    <tr>
+                        <TableProperty>Race:</TableProperty>
+                        <TableValue>{character.race}</TableValue>
+                    </tr>
+                    <tr>
+                        <TableProperty>Gender:</TableProperty>
+                        <TableValue>{character.gender}</TableValue>
+                    </tr>
+                    <tr>
+                        <TableProperty>Class:</TableProperty>
+                        <TableValue>{character.class}</TableValue>
+                    </tr>
+                    <tr>
+                        <TableProperty>Spec:</TableProperty>
+                        <TableValue>{character.spec}</TableValue>
+                    </tr>
+                </tbody>
+            </Table>
+            <CharacterIcons character={character} />
+        </CharacterInfoContainer>
     )
 }
 

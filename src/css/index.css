@@ -18,6 +18,11 @@ body {
     margin-top: 200px;
 }
 
+.mode-buttons {
+    position: relative;
+    margin-top: 50px;
+}
+
 .links {
     display: block;
     position: relative;

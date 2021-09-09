@@ -23,10 +23,9 @@ function App() {
                     <>
                     <GlobalStyles/>
                     <DarkModeSwitch theme={theme} toggleTheme={themeToggler} />
-
                     </>
                 </ThemeProvider>
-
+                
                 <Switch>
                     <Route path='/' exact>
                         <Home />

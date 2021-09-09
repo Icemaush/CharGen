@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 const CharacterDisplayWindowContainer = styled.div`
     display: flex;
-    position: relative;
-    top: 100px;
+    justify-content: center;
+    border: 1px solid blue;
 `;
 
 const CharacterDisplayWindow = ({characters}) => {

@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 const IconContainer = styled.div`
         display: block;
-        margin: 5px;
+        margin-top: 6px;
+        margin-right: 10px;
+        position: relative;
     `;
 
 const Icon = (props) => {

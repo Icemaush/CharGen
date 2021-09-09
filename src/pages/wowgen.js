@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Container from '@material-ui/core/Container'
 import Header from '../components/Header'
-import Button from '../components/Button'
+import Button from '@material-ui/core/Button'
 import ModeButtons from '../components/ModeButtons'
 import Return from '../components/Return'
 import axios from 'axios'
@@ -45,29 +45,14 @@ function Wowgen() {
                 <Header title="WoWGen" subtitle="A WoW Classic character generator" />
             </Container>
         
-            {/* <Container className="mode-buttons">
-                <ModeButtons />
-            </Container> */}
+            <Container className="mode-buttons">
+                <ModeButtons mode={mode} setMode={setMode}/>
+            </Container>
 
             <Button text="Generate" onClick={generateCharacter} />
             <Button text="Clear" onClick={clearCharacters} />
             <CharacterDisplayWindow characters={characters} />
 
-
-            
-{/*             
-            <div className="character-card">
-                <Info faction={character.faction} race={character.race} gender={character.gender} class={character.class} spec={character.spec} />
-                <div className="imgcon">
-                    <Icon type="faction_image" url={character.factionIconUrl} width="64" height = "64"/>
-                    <Icon type="race_image" url={character.raceIconUrl} width="64" height = "64"/>
-                    <Icon type="class_image" url={character.classIconUrl} width="64" height = "64"/>
-                    <Icon type="spec_image" url={character.specIconUrl} width="64" height = "64"/>
-                </div>
-                <div className="char-preview">
-                    <Image type="char_preview" url={character.previewImageUrl} />
-                </div>
-</div> */}
         </div>
    )
 }
