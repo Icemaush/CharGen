@@ -5,9 +5,13 @@ import Icon from '../components/Icon'
 const Card = styled.div`
     display: flex;
     vertical-align: middle;
-    border: 1px solid darkred;
+    border: 1px solid #f50057;
     border-radius: 15px;
     padding: 15px;
+    padding-left: 40px;
+    :hover {
+        background-color: rgba(50, 55, 61, .5);
+    }
 `;
 
 const Title = styled.p`
