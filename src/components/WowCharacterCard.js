@@ -6,6 +6,7 @@ const CharacterCard = styled.div`
     display: flex;
     border: 1px solid darkred;
     border-radius: 5px;
+    margin-right: 8px;
 `;
 
 const WowCharacterCard = ({character}) => {

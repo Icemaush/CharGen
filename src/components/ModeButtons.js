@@ -6,7 +6,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import ClearIcon from '@material-ui/icons/Clear';
 import { Grid } from '@material-ui/core';
 
-const ModeButtons = ({ mode, setMode, generateCharacter, clearCharacters }) => {
+const ModeButtons = ({ mode, setMode, generateCharacter, clearCharacters, generateParty, buildModal }) => {
     function changeMode(event) {
         const id = event.currentTarget.id;
         if (id != mode) {
@@ -25,7 +25,7 @@ const ModeButtons = ({ mode, setMode, generateCharacter, clearCharacters }) => {
                     </Button>
                 </Grid> 
                 <Grid item>
-                    <Button className="mode-button" variant={mode === "build" ? "contained" : "outlined"} color="secondary" startIcon={<GavelOutlinedIcon />} onClick={changeMode} id={"build"}>
+                    <Button className="mode-button" variant={mode === "build" ? "contained" : "outlined"} color="secondary" startIcon={<GavelOutlinedIcon />} onClick={buildModal} id={"build"}>
                         Build Mode
                     </Button>
                 </Grid>
@@ -37,7 +37,7 @@ const ModeButtons = ({ mode, setMode, generateCharacter, clearCharacters }) => {
                     </Button>
                 </Grid> 
                 <Grid item>
-                    <Button className="sub-button" variant={"outlined"} color="secondary" startIcon={<PeopleIcon />} >
+                    <Button className="sub-button" variant={"outlined"} color="secondary" startIcon={<PeopleIcon />} onClick={generateParty}>
                         Generate Party
                     </Button>
                 </Grid>
